@@ -1,7 +1,7 @@
 import CourseCard from '@/components/CourseCard'
+import { CreateCourseDialog } from '@/components/CreateCourseDialog'
 import { db } from '@/db'
 import React from 'react'
-import CreateCourseDialog from '../../components/CreateCourseDialog'
 
 
 const page = async () => {

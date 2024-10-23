@@ -16,7 +16,8 @@ const initialState = {
     message: "",
 };
 
-export function DialogCloseButton() {
+
+export const CreateCourseDialog = () => {
     const [state, formAction] = useActionState(createCourse, initialState)
     const [open, setOpen] = useState(false)
     const { toast } = useToast()
@@ -119,5 +120,3 @@ export function DialogCloseButton() {
         </Dialog>
     )
 }
-
-export default DialogCloseButton;

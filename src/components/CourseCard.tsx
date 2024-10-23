@@ -11,8 +11,9 @@ import { Course } from "@/db/schema";
 import Link from "next/link";
 
 const CourseCard = ({ course }: { course: Course }) => {
+
     return (
-        <Link href={`/course/${course.id}`}>
+        <Link href={`/courses/${course.id}`}>
             <Card
                 className="h-[20rem] hover:bg-stone-50"
                 onClick={() => {
