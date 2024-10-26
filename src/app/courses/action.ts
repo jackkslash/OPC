@@ -16,6 +16,7 @@ export async function createCourse(prevState: {
             return {
                 type: 'error',
                 message: 'Title must be at least 3 characters long',
+                formData: formData
             }
         }
 

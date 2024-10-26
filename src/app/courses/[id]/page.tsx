@@ -1,5 +1,6 @@
+import DialogForm from "@/components/DialogForm"
 import { db } from "@/db"
-import { courses, units } from "@/db/schema"
+import { courses } from "@/db/schema"
 import { eq } from "drizzle-orm"
 
 const page = async ({ params }: { params: { id: number } }) => {
@@ -29,33 +30,42 @@ const page = async ({ params }: { params: { id: number } }) => {
             {data?.units.length ?
                 data?.units.map((unit) => {
                     return (
-                        <div>
-                            //delete
-                            //add
+                        <div key={unit.id}>
                             <p>{unit.id}</p>
                             <p>{unit.title}</p>
                             <p>{unit.description}</p>
+                            <br />
                             {
                                 unit.lessons.length ?
                                     unit.lessons.map((lesson) => {
                                         return (
-                                            <div>
-                                                //delete
-                                                //add
+                                            <div key={lesson.id}>
                                                 <p>{lesson.id}</p>
                                                 <p>{lesson.title}</p>
                                                 <p>{lesson.description}</p>
+                                                <br />
                                             </div>
                                         )
                                     }) :
                                     <p>No lessons</p>
                             }
+                            <div className="flex gap-4">
+                                <button
+                                    className="bg-black text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors"
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     )
-                }) :
-                <p>No units</p>
-            }
+                })
 
+
+                :
+                <div>
+                    <p>No units exist for this course</p>
+                </div>
+            }
 
         </div>
     )
